@@ -8,10 +8,10 @@ ADD . /app
 RUN yum update &&
 # install prequired modules to support install of mlflow and related components
 #RUN apt-get install -y default-libmysqlclient-dev build-essential curl
-yum install -y default-libmysqlclient-dev build-essential curl
+RUN yum install -y default-libmysqlclient-dev build-essential curl
 # cmake and protobuf-compiler required for onnx install
 #RUN cmake protobuf-compiler &&
-yum cmake protobuf-compiler &&
+RUN yum cmake protobuf-compiler &&
 # install required python packages
 RUN pip install -r dev-requirements.txt &&
 RUN pip install -r test-requirements.txt &&
