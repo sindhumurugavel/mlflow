@@ -4,6 +4,10 @@ WORKDIR /app
 
 ADD . /app
 
+RUN whoami
+USER root
+RUN whoami
+
 #RUN apt-get update &&
 RUN yum check-update &&
 # install prequired modules to support install of mlflow and related components
