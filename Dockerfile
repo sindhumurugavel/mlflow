@@ -5,7 +5,7 @@ WORKDIR /app
 ADD . /app
 
 #RUN whoami
-#USER root
+USER root
 #RUN whoami
 
 #RUN apt-get update &&
