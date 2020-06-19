@@ -9,7 +9,7 @@ USER root
 RUN whoami
 
 #RUN apt-get update &&
-RUN yum check-update &&
+RUN dnf check-update &&
 # install prequired modules to support install of mlflow and related components
 #RUN apt-get install -y default-libmysqlclient-dev build-essential curl
 RUN yum install -y default-libmysqlclient-dev build-essential curl
