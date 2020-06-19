@@ -4,9 +4,9 @@ WORKDIR /app
 
 ADD . /app
 
-RUN whoami
-USER root
-RUN whoami
+#RUN whoami
+#USER root
+#RUN whoami
 
 #RUN apt-get update &&
 RUN dnf check-update &&
