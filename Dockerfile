@@ -22,7 +22,7 @@ RUN pip install -r test-requirements.txt &&
 # install mlflow in editable form
 RUN pip install -e . &&
 # mkdir required to support install openjdk-11-jre-headless
-RUN mkdir -p /usr/share/man/man1 && apt-get install -y openjdk-11-jre-headless &&
+RUN mkdir -p /usr/share/man/man1 && yum install -y openjdk-11-jre-headless &&
 # install npm for node.js support
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - &&
 #RUN apt-get update && apt-get install -y nodejs &&
