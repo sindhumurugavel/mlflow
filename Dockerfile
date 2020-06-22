@@ -17,6 +17,7 @@ RUN yum -y update
 RUN yum install -y cmake protobuf-compiler
 
 # install required python packages
+RUN pip install --upgrade pip
 RUN pip install -r dev-requirements.txt
 RUN pip install -r test-requirements.txt
 
