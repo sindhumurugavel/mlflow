@@ -18,6 +18,7 @@ RUN yum -y update
 
 # install required python packages
 RUN pip install --upgrade pip
+RUN ls -lrt
 RUN pip install -r dev-requirements.txt
 RUN pip install -r test-requirements.txt
 
