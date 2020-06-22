@@ -14,7 +14,7 @@ RUN yum -y update
 #RUN apt-get install -y default-libmysqlclient-dev build-essential curl
 RUN yum install -y curl
 #RUN yum install gcc gcc-c++ kernel-devel make
-RUN yum install -y mariadb-devel
+RUN yum install -y mariadb-connector-c-devel-3.0.7-1.el8.x86_64
 # cmake and protobuf-compiler required for onnx install
 #RUN cmake protobuf-compiler &&
 RUN yum cmake protobuf-compiler &&
