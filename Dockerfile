@@ -14,11 +14,13 @@ RUN yum -y update
 
 # cmake and protobuf-compiler required for onnx install
 #RUN cmake protobuf-compiler &&
-RUN yum install -y cmake protobuf-compiler
+#RUN yum install -y cmake protobuf-compiler
+RUN yum whatprovides protobuf*
 
 # install required python packages
 RUN pip install --upgrade pip
 RUN pip install -r dev-requirements.txt
+RUN echo $pwd
 #RUN pip install -r test-requirements.txt
 RUN pip install -r travis/small-requirements.txt
 RUN pip install -r travis/large-requirements.txt
