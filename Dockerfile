@@ -6,7 +6,7 @@ ADD . /app
 
 USER root
 
-RUN yum -y update
+#RUN yum -y update
 
 # install prequired modules to support install of mlflow and related components
 #RUN yum install -y curl
@@ -17,9 +17,11 @@ RUN yum -y update
 #RUN yum install -y cmake protobuf-compiler
 
 # install required python packages
-RUN pip install --upgrade pip
-RUN pip install -r dev-requirements.txt
-RUN pwd
+#RUN pip install --upgrade pip
+#RUN pip install -r dev-requirements.txt
+#RUN pwd
+RUN ls -lrt
+RUN cd mlflow
 RUN ls -lrt
 RUN pip install -r test-requirements.txt
 #RUN pip install -r travis/small-requirements.txt
