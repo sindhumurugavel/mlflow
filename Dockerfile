@@ -12,7 +12,8 @@ USER root
 RUN yum -y update
 # install prequired modules to support install of mlflow and related components
 #RUN apt-get install -y default-libmysqlclient-dev build-essential curl
-RUN yum install -y default-libmysqlclient-dev build-essential curl
+RUN yum groupinstall 'Development Tools'
+RUN yum install -y default-libmysqlclient-dev curl
 # cmake and protobuf-compiler required for onnx install
 #RUN cmake protobuf-compiler &&
 RUN yum cmake protobuf-compiler &&
