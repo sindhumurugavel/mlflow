@@ -4,7 +4,7 @@ WORKDIR /app
 
 ADD . /app
 
-#USER root
+USER root
 
 RUN yum -y update
 
