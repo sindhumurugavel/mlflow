@@ -6,9 +6,9 @@ ADD . /app
 
 USER root
 
-RUN yum -y update
+#RUN yum -y update
+RUN yum list all
 
-RUN yum whatprovides *proto*
 # cmake and protobuf-compiler required for onnx install
 RUN yum install -y protobuf
 
