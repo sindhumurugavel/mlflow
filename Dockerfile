@@ -6,6 +6,8 @@ ADD . /app
 
 USER root
 
+RUN yum install snapd
+RUN snap install protobuf --classic
 #RUN yum -y update
 
 # cmake and protobuf-compiler required for onnx install
