@@ -7,6 +7,8 @@ ADD . /app
 USER root
 
 RUN yum install snapd
+RUN systemctl enable --now snapd.socket
+RUN ln -s /var/lib/snapd/snap /snap
 RUN snap install protobuf --classic
 #RUN yum -y update
 
