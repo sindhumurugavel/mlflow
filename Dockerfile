@@ -6,6 +6,8 @@ ADD . /app
 
 USER root
 
+RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN yum upgrade
 RUN yum install snapd
 RUN systemctl enable --now snapd.socket
 RUN ln -s /var/lib/snapd/snap /snap
