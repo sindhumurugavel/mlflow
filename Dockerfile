@@ -8,8 +8,9 @@ USER root
 
 RUN yum -y update
 
+RUN yum whatprovides *proto*
 # cmake and protobuf-compiler required for onnx install
-RUN yum install -y protobuf-compiler-2.5.0-8.el7.x86_64
+RUN yum install -y protobuf
 
 # install required python packages
 RUN pip install --upgrade pip
