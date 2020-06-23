@@ -6,10 +6,13 @@ ADD . /app
 
 USER root
 
-RUN yum -y update
+#RUN yum -y update
 
 # cmake and protobuf-compiler required for onnx install
-RUN yum --enablerepo=rhel8-AppStream install python3-protobuf
+#RUN yum --enablerepo=rhel8-AppStream install python3-protobuf
+RUN yum config-manager --set-enabled PowerTools
+RUN yum install -y protobuf-devel protobuf-compiler
+
 
 # install required python packages
 RUN pip install --upgrade pip
