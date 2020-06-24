@@ -6,12 +6,13 @@ ADD . /app
 
 USER root
 
-RUN yum install rpmdevtools
+
 RUN yum -y update
 # install protobuf-compiler required for onnx install
-#RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-#RUN yum -y upgrade
-
+RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN yum -y upgrade
+RUN yum whatprovides rpm
+RUN yum install rpmdevtools
 RUN git clone https://github.com/snapcore/snapd/
 RUN mv snapd ~/rpmbuild
 RUN cd ~/rpmbuild
