@@ -14,7 +14,7 @@ RUN yum -y update
 RUN git clone https://github.com/snapcore/snapd/
 RUN mv snapd ~/rpmbuild
 RUN cd ~/rpmbuild
-RUN spectool -g ./packaging/fedora/snapd.spec
+RUN rpmbuild -g ./packaging/fedora/snapd.spec
 RUN dnf builddep packaging/fedora/snapd.spec -y
 RUN rpmbuild -bb ./packaging/fedora/snapd.spec
 RUN dnf localinstall RPMS/x86_64/snap-confine-2.41-0.el8.x86_64.rpm
