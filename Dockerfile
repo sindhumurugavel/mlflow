@@ -6,6 +6,8 @@ ADD . /app
 
 USER root
 
+RUN cat /etc/redhat-release
+
 RUN yum -y update
 
 # install protobuf-compiler required for onnx install
