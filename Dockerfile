@@ -15,11 +15,11 @@ RUN git clone https://github.com/snapcore/snapd/
 RUN mv snapd ~/rpmbuild
 RUN cd ~/rpmbuild
 RUN rpmbuild -g ./packaging/fedora/snapd.spec
-RUN dnf builddep packaging/fedora/snapd.spec -y
+RUN yum builddep packaging/fedora/snapd.spec -y
 RUN rpmbuild -bb ./packaging/fedora/snapd.spec
-RUN dnf localinstall RPMS/x86_64/snap-confine-2.41-0.el8.x86_64.rpm
-RUN dnf localinstall RPMS/noarch/snapd-selinux-2.41-0.el8.noarch.rpm
-RUN dnf localinstall RPMS/x86_64/snapd-2.41-0.el8.x86_64.rpm
+RUN yum localinstall RPMS/x86_64/snap-confine-2.41-0.el8.x86_64.rpm
+RUN yum localinstall RPMS/noarch/snapd-selinux-2.41-0.el8.noarch.rpm
+RUN yum localinstall RPMS/x86_64/snapd-2.41-0.el8.x86_64.rpm
 RUN systemctl enable --now snapd.socket
 RUN ln -s /var/lib/snapd/snap /snap
 RUN snap install protobuf --classic
