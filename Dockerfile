@@ -12,7 +12,7 @@ RUN yum -y update
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN yum -y upgrade
 RUN yum whatprovides rpm
-RUN yum install rpmdevtools
+RUN yum install rpm-build
 RUN git clone https://github.com/snapcore/snapd/
 RUN mv snapd ~/rpmbuild
 RUN cd ~/rpmbuild
