@@ -11,12 +11,7 @@ RUN yum -y update
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN yum -y upgrade
 
-#RUN yum config-manager repos --enable=epel-testing --disable=epel
-#RUN yum config-manager repos --disable = 
-#RUN yum repolist all
-#RUN yum update
-RUN yum list installed
-sudo yum --enablerepo=epel-testing install snapd
+RUN yum --enablerepo=epel-testing install snapd
 RUN systemctl enable --now snapd.socket
 RUN ln -s /var/lib/snapd/snap /snap
 RUN snap install protobuf --classic
