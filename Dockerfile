@@ -13,8 +13,10 @@ RUN yum -y update
 # install protobuf-compiler required for onnx install
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN yum -y upgrade
+RUN subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
+RUN yum update
 RUN yum list installed
-#RUN yum --enablerepo=epel install -y snapd
+RUN yum install -y snapd
 RUN systemctl enable --now snapd.socket
 RUN ln -s /var/lib/snapd/snap /snap
 RUN snap install protobuf --classic
