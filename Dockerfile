@@ -11,13 +11,13 @@ RUN yum -y update
 # install protobuf-compiler required for onnx install
 RUN yum install autoconf automake libtool unzip gcc-c++ git -y
 RUN git clone https://github.com/google/protobuf.git
-RUN cd protobuf
-RUN ls -lrt
-RUN cd protobuf
 #RUN git submodule update --init --recursive
-RUN ./autogen.sh
-RUN ./configure
+RUN ./protobuf/autogen.sh
+RUN ./protobuf/configure
 RUN make
+RUN make check
+RUN make install
+RUN ldconfig
 RUN protoc --version
 
 #RUN yum install -y autoconf automake bzip2 diffutils gcc-c++ git gzip libtool make tar wget zlib-devel
