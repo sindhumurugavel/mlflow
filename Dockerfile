@@ -9,22 +9,11 @@ USER root
 
 RUN yum -y update
 # install protobuf-compiler required for onnx install
-RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN yum -y upgrade
-RUN yum whatprovides rpm*
-RUN yum install rpm-build-libs
-RUN git clone https://github.com/snapcore/snapd/
-RUN mv snapd ~/rpmbuild
-RUN cd ~/rpmbuild
-RUN rpmbuild -g ./packaging/fedora/snapd.spec
-RUN yum builddep packaging/fedora/snapd.spec -y
-RUN rpmbuild -bb ./packaging/fedora/snapd.spec
-RUN yum localinstall RPMS/x86_64/snap-confine-2.41-0.el8.x86_64.rpm
-RUN yum localinstall RPMS/noarch/snapd-selinux-2.41-0.el8.noarch.rpm
-RUN yum localinstall RPMS/x86_64/snapd-2.41-0.el8.x86_64.rpm
-RUN systemctl enable --now snapd.socket
-RUN ln -s /var/lib/snapd/snap /snap
-RUN snap install protobuf --classic
+
+# Build Protobuf
+RUN wget -q https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Protobuf/3.11.4/build_protobuf.sh
+RUN bash build_protobuf.sh 
+RUN protoc --version
 
 # install required python packages
 RUN pip install --upgrade pip
