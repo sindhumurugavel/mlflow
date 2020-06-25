@@ -4,9 +4,6 @@ WORKDIR /app
 
 ADD . /app
 
-USER root
-
-
 RUN yum -y update
 # install protobuf-compiler required for onnx install
 
@@ -16,6 +13,7 @@ RUN wget -q https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Prot
 RUN bash build_protobuf.sh 
 RUN protoc --version
 
+USER root
 # install required python packages
 RUN pip install --upgrade pip
 RUN ls -lrt
