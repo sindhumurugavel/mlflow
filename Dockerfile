@@ -11,6 +11,7 @@ RUN yum -y update
 # install protobuf-compiler required for onnx install
 
 # Build Protobuf
+RUN yum install -y wget
 RUN wget -q https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Protobuf/3.11.4/build_protobuf.sh
 RUN bash build_protobuf.sh 
 RUN protoc --version
