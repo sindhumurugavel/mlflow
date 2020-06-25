@@ -10,6 +10,7 @@ RUN yum -y update
 
 # install protobuf-compiler required for onnx install
 RUN curl -sL https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protoc-3.12.3-linux-x86_64.zip
+RUN ls
 RUN unzip protoc-3.12.3-linux-x86_64.zip -d $HOME/.local
 RUN export PATH="$PATH:$HOME/.local/bin"
 
