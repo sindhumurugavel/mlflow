@@ -4,11 +4,6 @@ WORKDIR /app
 
 ADD . /app
 
-USER root
-
-RUN yum -y update
-
-# install protobuf-compiler required for onnx install
 RUN yum install autoconf automake libtool unzip gcc-c++ git -y
 RUN git clone https://github.com/google/protobuf.git
 RUN cd protobuf
@@ -20,6 +15,13 @@ RUN make check
 RUN make install
 RUN ldconfig
 RUN protoc --version
+
+USER root
+
+RUN yum -y update
+
+# install protobuf-compiler required for onnx install
+
 
 #RUN yum install -y autoconf automake bzip2 diffutils gcc-c++ git gzip libtool make tar wget zlib-devel
 #RUN git clone https://github.com/protocolbuffers/protobuf.git
