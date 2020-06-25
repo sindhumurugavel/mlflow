@@ -6,7 +6,7 @@ ADD . /app
 
 #RUN yum install autoconf automake libtool unzip gcc-c++ git -y
 RUN git clone https://github.com/google/protobuf.git
-RUN cd protobuf
+#RUN cd protobuf
 #RUN git submodule update --init --recursive
 RUN ./autogen.sh
 RUN ./configure
