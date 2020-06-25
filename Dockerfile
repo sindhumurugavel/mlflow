@@ -4,16 +4,27 @@ WORKDIR /app
 
 ADD . /app
 
+USER root
+
 RUN yum -y update
+
 # install protobuf-compiler required for onnx install
 
-# Build Protobuf
-RUN yum install -y wget
-RUN wget -q https://raw.githubusercontent.com/linux-on-ibm-z/scripts/master/Protobuf/3.11.4/build_protobuf.sh
-RUN bash build_protobuf.sh 
+RUN yum install -y autoconf automake bzip2 diffutils gcc-c++ git gzip libtool make tar wget zlib-devel
+RUN git clone https://github.com/protocolbuffers/protobuf.git
+RUN cd protobuf
+RUN git checkout v3.11.4
+RUN git submodule update --init --recursive
+RUN ./autogen.sh
+RUN ./configure
+RUN make
+RUN make install
+RUN ldconfig
+RUN cd protobuf
+RUN make check
 RUN protoc --version
 
-USER root
+
 # install required python packages
 RUN pip install --upgrade pip
 RUN ls -lrt
