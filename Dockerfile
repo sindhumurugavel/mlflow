@@ -13,7 +13,7 @@ RUN yum -y update
 RUN yum install -y autoconf automake bzip2 diffutils gcc-c++ git gzip libtool make tar wget zlib-devel
 RUN git clone https://github.com/protocolbuffers/protobuf.git
 RUN cd protobuf
-RUN git checkout v3.11.4
+RUN git checkout 3.11.x
 RUN git submodule update --init --recursive
 RUN ./autogen.sh
 RUN ./configure
