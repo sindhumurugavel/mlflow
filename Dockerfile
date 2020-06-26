@@ -6,8 +6,8 @@ WORKDIR /app
 
 ADD . /app
 
-RUN export HTTP_PROXY=http://internet.ford.com:83
-RUN export HTTPS_PROXY=https://internet.ford.com:83
+#RUN export HTTP_PROXY=http://internet.ford.com:83
+#RUN export HTTPS_PROXY=https://internet.ford.com:83
 RUN curl -sL --output protoc-3.12.3-linux-x86_64.zip https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protoc-3.12.3-linux-x86_64.zip
 RUN yum install zip
 RUN unzip protoc-3.12.3-linux-x86_64.zip
@@ -19,7 +19,7 @@ RUN protoc --version
 RUN yum -y update
 
 # install required python packages
-RUN pip install --upgrade pip
+RUN pip3 install --upgrade pip
 RUN ls -lrt
 RUN pip3 install -r dev-requirements.txt
 RUN pip3 install -r test-requirements.txt
