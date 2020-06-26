@@ -1,10 +1,5 @@
 FROM continuumio/miniconda3
 
-WORKDIR /app
-
-ADD . /app
-
-#RUN yum install autoconf automake libtool unzip gcc-c++ git -y
 RUN git clone https://github.com/google/protobuf.git
 RUN cd protobuf
 #RUN git submodule update --init --recursive
@@ -15,6 +10,13 @@ RUN make check
 RUN make install
 RUN ldconfig
 RUN protoc --version
+
+WORKDIR /app
+
+ADD . /app
+
+#RUN yum install autoconf automake libtool unzip gcc-c++ git -y
+
 
 USER root
 
