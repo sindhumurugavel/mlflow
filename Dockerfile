@@ -1,21 +1,17 @@
 FROM continuumio/miniconda3
 
-RUN git clone https://github.com/google/protobuf.git
-RUN cd protobuf
-#RUN git submodule update --init --recursive
-RUN ./autogen.sh
-RUN ./configure
-RUN make
-RUN make check
-RUN make install
-RUN ldconfig
-RUN protoc --version
+USER root
 
 WORKDIR /app
 
 ADD . /app
 
-USER root
+RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protoc-3.12.3-linux-x86_64.zip
+RUN yum install zip
+RUN unzip protoc-3.12.3-linux-x86_64.zip
+RUN echo $PATH
+RUN cp protoc-3.12.3-linux-x86_64/bin/protoc /usr/local/bin/
+RUN protoc --version
 
 RUN yum -y update
 
