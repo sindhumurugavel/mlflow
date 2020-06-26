@@ -15,30 +15,9 @@ WORKDIR /app
 
 ADD . /app
 
-#RUN yum install autoconf automake libtool unzip gcc-c++ git -y
-
-
 USER root
 
 RUN yum -y update
-
-# install protobuf-compiler required for onnx install
-
-
-#RUN yum install -y autoconf automake bzip2 diffutils gcc-c++ git gzip libtool make tar wget zlib-devel
-#RUN git clone https://github.com/protocolbuffers/protobuf.git
-#RUN cd protobuf
-#RUN git checkout 3.11.x
-#RUN git submodule update --init --recursive
-#RUN ./autogen.sh
-#RUN ./configure
-#RUN make
-#RUN make install
-#RUN ldconfig
-#RUN cd protobuf
-#RUN make check
-#RUN protoc --version
-
 
 # install required python packages
 RUN pip install --upgrade pip
