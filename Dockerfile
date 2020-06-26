@@ -13,7 +13,7 @@ RUN yum install zip
 RUN unzip protoc-3.12.3-linux-x86_64.zip
 RUN ls
 RUN echo $PATH
-RUN cp protoc-3.12.3-linux-x86_64/bin/protoc /usr/local/bin/
+RUN cp bin/protoc /usr/local/bin/
 RUN protoc --version
 
 RUN yum -y update
