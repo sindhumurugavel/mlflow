@@ -19,10 +19,10 @@ RUN protoc --version
 RUN yum -y update
 
 # install required python packages
-RUN pip3 install --upgrade pip
+RUN pip install --upgrade pip
 RUN ls -lrt
-RUN pip3 install -r dev-requirements.txt
-RUN pip3 install -r test-requirements.txt
+RUN pip install -r dev-requirements.txt
+#RUN pip install -r test-requirements.txt
 
 # install mlflow in editable form
 RUN pip install -e .
