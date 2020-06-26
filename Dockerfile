@@ -1,6 +1,6 @@
 FROM continuumio/miniconda3
 
-RUN yum whatprovides *jre*
+#RUN yum whatprovides *jre*
 
 USER root
 
