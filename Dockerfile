@@ -30,7 +30,7 @@ RUN pip install -r dev-requirements.txt
 RUN pip install -e .
 
 # mkdir required to support install openjdk-11-jre-headless
-RUN mkdir -p /usr/share/man/man1 && yum install -y openjdk-11-jre-headless
+RUN mkdir -p /usr/share/man/man1 && yum install -y jre-11-openjdk-headless
 
 # install npm for node.js support
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
