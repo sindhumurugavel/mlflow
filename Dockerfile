@@ -8,7 +8,7 @@ ADD . /app
 
 RUN export HTTP_PROXY=http://internet.ford.com:83
 RUN export HTTPS_PROXY=https://internet.ford.com:83
-RUN wget https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protoc-3.12.3-linux-x86_64.zip
+RUN curl -sL https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protoc-3.12.3-linux-x86_64.zip
 RUN yum install zip
 RUN unzip protoc-3.12.3-linux-x86_64.zip
 RUN echo $PATH
